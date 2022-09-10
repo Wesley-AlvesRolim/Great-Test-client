@@ -6,7 +6,7 @@ interface UserItemProps {
 }
 
 export function UserItem({ data }: UserItemProps) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const formattedData = {
     ...data,
     birthday: new Date(data.birthday).toLocaleString("pt-BR", {
@@ -18,7 +18,7 @@ export function UserItem({ data }: UserItemProps) {
   };
   return (
     <tr
-      onClick={()=> navigate(`/user/${data.cpf}`)}
+      onClick={() => navigate(`/user/${data.cpf}`)}
       className="h-12 p-2 text-center hover:bg-teal-400 hover:text-white cursor-pointer transition-colors table-row"
     >
       <td className="px-1 align-middle">{formattedData.name}</td>
