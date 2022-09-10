@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
+
 import { Search } from "../components/Search";
 import { UserTable } from "../components/UserTable";
 import { api } from "../services/api";
@@ -70,7 +73,13 @@ export function Home() {
   return (
     <div className="w-screen min-h-screen flex items-center justify-center bg-gray-100">
       <main className="w-full max-w-[800px] p-2 bg-white">
-        <header className="my-8 flex justify-end">
+        <header className="my-8 flex justify-between gap-2 flex-wrap-reverse">
+          <Link to="/user/create">
+            <button className="w-40 h-10 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center gap-4 hover:scale-105 transition-transform">
+              <FaPlus />
+              Criar usuário
+            </button>
+          </Link>
           <Search usersList={usersList} setUsersList={setUsersList} />
         </header>
         <UserTable users={usersList} />
