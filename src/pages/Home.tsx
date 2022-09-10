@@ -54,13 +54,11 @@ export function Home() {
 
   const fetchUsers = async () => {
     try {
-      setUsersList({
-        toShow: usersMock,
-        initialValues: usersMock,
-      });
       const response = await api.get("/user/list");
-      console.log(response.data);
-      //setUsersList( response.data)
+      setUsersList({
+        toShow: response.data || [],
+        initialValues: response.data || [],
+      });
     } catch (error) {
       console.error(error);
     }
